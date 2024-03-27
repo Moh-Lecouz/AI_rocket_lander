@@ -6,6 +6,6 @@ The Lunar Lander environment is a popular benchmark in reinforcement learning wh
 
 # Environment Overview
 
-Observation Space: The state consists of eight variables, including the lander's position, velocity, angle, angular velocity, and two booleans indicating whether each leg is in contact with the ground.
-Actions: There are four discrete actions available: do nothing, fire left orientation engine, fire main engine, and fire right orientation engine.
-Rewards: The reward system penalizes fuel usage, moving away from the landing zone, and crashing. It rewards coming to rest on the landing pad and conserving fuel.
+- Observation Space: The state consists of eight variables, including the lander's position, velocity, angle, angular velocity, and two booleans indicating whether each leg is in contact with the ground.
+- Actions: There are four discrete actions available: do nothing, fire left orientation engine, fire main engine, and fire right orientation engine.
+- Rewards: The reward system penalizes fuel usage, moving away from the landing zone, and crashing. It rewards coming to rest on the landing pad and conserving fuel.
