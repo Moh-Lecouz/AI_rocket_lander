@@ -18,6 +18,21 @@ The Lunar Lander environment is a popular benchmark in reinforcement learning wh
 - gymnasium (formerly gym)
 - imageio (for rendering videos)
 
+# Setting Up the Environment
+
+Ensure all dependencies are installed using `pip`:
+```bash
+pip install torch numpy gymnasium "gymnasium[atari, accept-rom-license]" gymnasium[box2d] imageio
+apt-get install -y swig
+```
+
+# Running the DQN Agent
+
+To start training the agent, simply run the script:
+```bash
+python AI_Agent.py
+```
+
 # Structure
 
 The main components of this implementation are as follows:
