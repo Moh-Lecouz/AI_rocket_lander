@@ -17,14 +17,14 @@ class Agent():
         self.t_step = (self.t_step +1) % 4
         if self.t_step == 0:
             if len(self.memory.memory) > minibatch_size :
-                experiences = self.memory.sample(minibatch_size) #different
-                self.learn(experiences, discount_factor) #to be updated
+                experiences = self.memory.sample(minibatch_size)
+                self.learn(experiences, discount_factor) 
 
     def act(self, state, epsilon = 0.):
         state = torch.from_numpy(state).float().unsqueeze(0).to(self.device)
         self.local_qnetwork.eval()
         with torch.no_grad():
-            action_values = self.local_qnetwork.forward(state) #different
+            action_values = self.local_qnetwork.forward(state) 
         self.local_qnetwork.train()
         if random.random() > epsilon :
             return np.argmax(action_values.cpu().data.numpy())
@@ -33,7 +33,7 @@ class Agent():
 
     def learn(self, experiences, discount_factor):
         states, next_states, actions, rewards, dones = experiences
-        next_q_targets = self.target_qnetwork.forward(next_states).detach().max(1)[0].unsqueeze(1)  #different
+        next_q_targets = self.target_qnetwork.forward(next_states).detach().max(1)[0].unsqueeze(1)  
         q_targets = rewards + (discount_factor * next_q_targets * (1 - dones))
         q_expected = self.local_qnetwork.forward(states).gather(1, actions)
         loss = F.mse_loss(q_expected, q_targets)
